@@ -40,9 +40,7 @@ def main():
                         print(message.content, end="")
             print()
         except Exception as e:
-            # Handle OpenAI quota/rate limit errors gracefully.
             try:
-                # The OpenAI package exposes RateLimitError in different places depending on version.
                 RateLimitClass = None
                 if hasattr(openai, "RateLimitError"):
                     RateLimitClass = openai.RateLimitError
